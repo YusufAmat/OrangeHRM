@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
+import org.testng.Assert;
 import utils.Base.BaseTest;
 
 import java.util.List;
@@ -54,6 +55,7 @@ public class MyStepdefs extends BaseTest {
     @And("username inputuna kaydettiginiz ürün ismini yazin")
     public void usernameInputunaKaydettiginizUrunIsminiYazin() {
         sendKeys(adminUsernameBox, System.getProperty("urunAdi"));
+        Assert.assertEquals(System.getProperty("urunAdi"), driver.findElement(adminUsernameBox).getAttribute("value"));
     }
 
     @And("ekran kaydi alin")
